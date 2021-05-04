@@ -103,8 +103,10 @@ def add_department(request):
     # if Department contains digits notify error
             if any(char.isdigit() for char in dep):
                 success = False
+                flagDepHasDigit = True
                 return render(request, 'add_department.html',
-                              {'form': form, 'successMessage': success})
+                              {'form': form, 'successMessage': success, 'flagDigit': flagDepHasDigit})
+
             try:
                 Department.objects.create(department=dep)
                 success = True
@@ -147,7 +149,7 @@ def delete_employee(request):
                 Employee.objects.filter(emp_id=employee_id).delete()
                 return render(request, 'index.html')
 
-        else:
+            else:
                 messages.info(request, 'Employee does not exist!')
                 return render(request, 'delete_employee.html', {'form': form})
     # GET
@@ -165,6 +167,9 @@ def update_department(request):
             emp_id = employeeform['emp_id']
             department = employeeform['department']
             employee = Employee.objects.filter(emp_id=emp_id).first()
+            if employee is None:
+                notFoundemp = True
+                return render(request, 'update_department.html', {'form': form, 'empNotFound': notFoundemp})
             D = Department.objects.all()
             # alternative for iteration is using update statement
             for e in D:
@@ -323,7 +328,7 @@ def findemp(request, eid):
 
 
     else:
-        msg = "No employee with such id";
+        msg = "No employee with such id"
         if '/findempupd/' in str(request):
             form = UpdateDepartment()
             return render(request, 'update_department.html', {'form': form, 'msg': msg,'idvalue':eid})

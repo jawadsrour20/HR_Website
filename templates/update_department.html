@@ -58,5 +58,14 @@
 </script>
 
 
+{%if empNotFound %}
+
+<div class="alert" style="background-color: red;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Failed!</strong> Employee does not exist.
+</div>
+
+{% endif %}
+
 
 {% endblock %}

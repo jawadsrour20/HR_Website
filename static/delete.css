@@ -98,3 +98,7 @@ form {
                           right: calc(var(--horizontal-offset) - var(--border-size));}
 
 .button:hover .button__vertical {transform: scaleY(0);}
+
+.alert {
+      color: red;
+}

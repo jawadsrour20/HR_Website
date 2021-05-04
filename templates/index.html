@@ -143,7 +143,7 @@
         function script(){
             var alerted = localStorage.getItem('alerted') || '';
             if (alerted != 'yes') {
-                alert("NOTIFICATIONS: \nThere are {{overtimeOnly}} employees with more than 19 overtime days. \nThere are {{absent}} employees with more than 9 absent days. \nIntersection of both categories: {{both}} employees. \nCheck Information for details.");
+                alert("NOTIFICATIONS: \nThere are {{overtimeOnly}} employees with more than 19 overtime days. \nThere are {{absent}} employees with more than 9 absent days. \nIntersection of both categories: {{both}} employees. \nVisit 'Current Employees' and search for RED names.");
                 localStorage.setItem('alerted','yes');
             }
         }

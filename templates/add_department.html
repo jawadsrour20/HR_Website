@@ -35,4 +35,11 @@
 </div>
 {%endif%}
 
+{% if flagDigit %}
+<div class="alert" style="background-color: red;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Department name cannot have a digit in it!</strong> Choose another name!
+</div>
+{%endif%}
+
 {% endblock %}
