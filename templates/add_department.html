@@ -19,21 +19,20 @@
             <div class="button__vertical"></div>
         </button>
     </form>
-    {%if successMessage == True %}
 </div>
 
+
+{%if successMessage %}
 <div class="alert">
      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-     <strong>Success!</strong> Successfully added Department to the database.
+     <strong>Success!</strong> Successfully added department to the database.
 </div>
 
-{%endif%}
-{%if successMessage == False %}
-
-
+{% elif flag %}
 <div class="alert" style="background-color: red;">
      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-     <strong>Fail!</strong> Could not add Department to the database.
+     <strong>Error adding department to database.</strong>
 </div>
 {%endif%}
+
 {% endblock %}

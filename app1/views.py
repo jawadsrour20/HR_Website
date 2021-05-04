@@ -10,7 +10,22 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    return render(request, 'index.html')
+    employees_fetched = Employee.objects.all()  # list of objects
+    overtime_only = 0
+    abs_only = 0
+    both_abs_and_overtime = 0
+    for employee in employees_fetched:
+        if employee.overtime_days>19 and employee.absences_days>9:
+            both_abs_and_overtime = both_abs_and_overtime + 1
+            overtime_only = overtime_only + 1
+            abs_only = abs_only + 1
+        elif employee.overtime_days>19 and employee.absences_days<=9:
+            overtime_only = overtime_only + 1
+        elif employee.overtime_days<=19 and employee.absences_days>9:
+            abs_only = abs_only + 1
+    return render(request, 'index.html', {'overtimeOnly': overtime_only,
+                                        'absent': abs_only,
+                                        'both': both_abs_and_overtime})
 
 
 # POST Request
@@ -84,7 +99,7 @@ def add_department(request):
         if form.is_valid():
             depform = form.cleaned_data
             dep = depform['department']
-
+            flagDep = False
     # if Department contains digits notify error
             if any(char.isdigit() for char in dep):
                 success = False
@@ -93,11 +108,17 @@ def add_department(request):
             try:
                 Department.objects.create(department=dep)
                 success = True
-
-                return render(request, 'add_department.html', {'form': form, 'successMessage': success})
+                return render(request, 'add_department.html', {'form': form, 'successMessage': success, 'flag': flagDep})
             except:
                 success = False
-                return render(request, 'add_department.html', {'form': form, 'successMessage': success})
+                flagDep = True
+                return render(request, 'add_department.html', {'form': form, 'successMessage': success, 'flag': flagDep})
+
+        else:
+            success = False
+            flagDep = True
+
+            return render(request, 'add_department.html', {'form': form, 'successMessage': success, 'flag': flagDep})
 
     else:
         form = DepForm()
@@ -167,16 +188,21 @@ def add_overtime(request):
         if form.is_valid():
             empform = form.cleaned_data
             employee_id = empform['emp_id']
-
+            notFound = False
             try:
                 res = Employee.objects.get(emp_id=employee_id)
                 overtimeNew = res.overtime_days + 1
                 Employee.objects.filter(emp_id=employee_id).update(overtime_days=overtimeNew)
                 # return render(request, 'index.html')
-                return redirect('homepage')
+                success = True
+                absent = False
+                employees_fetched = Employee.objects.all()  # list of objects
+                return render(request, "fetch_employees.html", {'employees': employees_fetched, 
+                                                                'successMessage' : success, 
+                                                                'absence': absent })
             except Employee.DoesNotExist:
-                messages.info(request, 'Employee does not exist!')
-                return render(request, 'add_overtime.html', {'form': form})
+                notFound = True
+                return render(request, 'add_overtime.html', {'form': form, 'notFound': notFound})
                 # return redirect('/report_student', 'error': errorstring)
                 # return HttpResponse("user not found")
     else:
@@ -191,15 +217,20 @@ def add_absence(request):
         if form.is_valid():
             empform = form.cleaned_data
             employee_id = empform['emp_id']
-
+            notFound = False
             try:
                 res = Employee.objects.get(emp_id=employee_id)
                 absenceNew = res.absences_days + 1
                 Employee.objects.filter(emp_id=employee_id).update(absences_days=absenceNew)
-                return redirect('/fetchemployees')
+                success = True
+                absent = True
+                employees_fetched = Employee.objects.all()  # list of objects
+                return render(request, "fetch_employees.html", {'employees': employees_fetched, 
+                                                                'successMessage' : success, 
+                                                                'absence': absent})
             except Employee.DoesNotExist:
-                messages.info(request, 'Employee does not exist!')
-                return render(request, 'add_absence.html', {'form': form})
+                notFound = True
+                return render(request, 'add_absence.html', {'form': form, 'notFound': notFound})
                 # return redirect('/report_student', 'error': errorstring)
                 # return HttpResponse("user not found")
     else:

@@ -6,6 +6,16 @@
 
     <h1>See you soon!</h1>
 
+    <body onload="script();">
+        <script type="text/javascript">
+            function script(){
+                    localStorage.removeItem('alerted');
+            }
+            
+        </script>
+    </body>
+
+
     <a href="{% url 'login' %}">
 
  <button id="submit" class="button" type="button">
