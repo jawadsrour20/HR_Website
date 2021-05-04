@@ -284,3 +284,6 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def delete_department(request):
+    return render(request, 'delete_department.html')

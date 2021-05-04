@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.urls import path
 # from django.conf.urls import url
 from .views import (index, add_employee, delete_employee, update_department, fetch_employees,
-                    fetch_employee, add_overtime, add_absence, news, contact, about,add_department,fetch_departments,details,fromdep)
+                    fetch_employee, add_overtime, add_absence, news, contact, about,add_department,fetch_departments,details,fromdep, delete_department)
 
 urlpatterns = [
     path('', index, name="homepage"),
@@ -35,4 +35,5 @@ urlpatterns = [
     path('about/', about),
     path('<int:emp_id>', details),
     path('fetchdeps/<str:dep_name>', fromdep),
+    path('deletedepartment/', delete_department),
 ]
