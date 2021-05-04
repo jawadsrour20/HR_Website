@@ -1,0 +1,139 @@
+
+
+ body{
+           background: linear-gradient(to bottom right, #E1BEE7, #B2EBF2);
+           background-repeat: no-repeat;
+           background-size: contain;
+           background-attachment: fixed;
+           color: #363945;
+ ;
+       }
+
+
+       .center{
+           margin-left: 400px;
+           margin-top: 30px;
+           background-color:whitesmoke;
+           overflow: auto;
+           width: 700px;
+           height: 500px;
+           box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+
+       }
+       .next{
+           float:left;
+           margin-left: 10px;
+           margin-top: 15px;
+           display: inline;
+           overflow: auto;
+
+       }
+       .about{
+
+
+            margin-top: -200px;
+           margin-left: 250px;
+           height: 400px;
+           overflow: auto;
+           width: 400px;
+
+
+
+           /* try this if the css positioning is off
+           position: relative;
+           bottom: 200px;
+           left: 200px;
+           width: 650px;
+           background-color: blue;
+                */
+
+
+           /* or this but not recommended
+           display: inline;
+
+           overflow: auto;
+           position: absolute;
+           background-color: blue;
+           top: 180px;
+          right: 450px;
+           width: 450px;
+           height: 400px;
+            border: 0px solid green;*/
+       }
+       .mt-3{
+           margin-left: 50px;
+       }
+
+       img{
+       border-radius: 50%;
+        }
+
+        .top{
+         display: inline;
+      }
+        .rimg{
+            display: inline;
+        }
+
+        button{
+         float:right;
+         margin-right: 100px;
+        }
+
+        .button {margin: 2%;
+            font-size: 20pt;
+          --offset: 10px;
+          --border-size: 2px;
+          display: block;
+          position: relative;
+          padding: 1.5em 3em;
+          appearance: none;
+          border: 0;
+          background: transparent;
+          color: #555555;
+          text-transform: uppercase;
+          letter-spacing: 0.25em;
+          outline: none;
+          cursor: pointer;
+          font-weight: bold;
+          border-radius: 0;
+          box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+          transition: background 0.6s ease;}
+
+.button:hover {background: rgba(100, 0, 0, 0.03);}
+
+.button__horizontal,
+.button__vertical {position: absolute;
+                  top: var(--horizontal-offset, 0);
+                  right: var(--vertical-offset, 0);
+                  bottom: var(--horizontal-offset, 0);
+                  left: var(--vertical-offset, 0);
+                  transition: transform 0.8s ease;
+                  will-change: transform;}
+
+.button__horizontal::before,
+.button__vertical::before {content: "";
+                          position: absolute;
+                          border: inherit;}
+
+.button__horizontal {--vertical-offset: calc(var(--offset) * -1);
+                      border-top: var(--border-size) solid currentcolor;
+                      border-bottom: var(--border-size) solid currentcolor;}
+
+.button__horizontal::before {top: calc(var(--vertical-offset) - var(--border-size));
+                              bottom: calc(var(--vertical-offset) - var(--border-size));
+                              left: calc(var(--vertical-offset) * -1);
+                              right: calc(var(--vertical-offset) * -1);}
+
+.button:hover .button__horizontal {transform: scaleX(0);}
+
+.button__vertical {--horizontal-offset: calc(var(--offset) * -1);
+                  border-left: var(--border-size) solid currentcolor;
+                  border-right: var(--border-size) solid currentcolor;}
+
+.button__vertical::before {top: calc(var(--horizontal-offset) * -1);
+                          bottom: calc(var(--horizontal-offset) * -1);
+                          left: calc(var(--horizontal-offset) - var(--border-size));
+                          right: calc(var(--horizontal-offset) - var(--border-size));}
+
+.button:hover .button__vertical {transform: scaleY(0);}

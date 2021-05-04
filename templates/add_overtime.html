@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %} Add Overtime {% endblock %}
+{% block link %} <link href="../static/overtime.css" rel="stylesheet" type="text/css"> {% endblock %}
+{% block content %}
+
+
+
+<div id="formdiv">
+<form action="." method="POST">
+  {% csrf_token %} {{ form.as_p }}
+
+  <button id="btn" class="button" type="submit">Add overtime 
+   <div class="button__horizontal"></div>
+        <div class="button__vertical"></div></button>
+
+    <a id="goback" href="/"><button id="btn" class="button" type="button">Menu
+   <div class="button__horizontal"></div>
+        <div class="button__vertical"></div></button></a>
+</form>
+</div>
+
+ 
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        <h1 id="errmsg">{{ message }}</h1>
+        <img src="../static/img/sad.jpg"/>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

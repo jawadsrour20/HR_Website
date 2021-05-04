@@ -1,0 +1,57 @@
+ <link href="../static/navbar.css" rel="stylesheet" type="text/css">
+<!--
+    <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/news">News</a>
+    <a href="/contact">Contact</a>
+    <a href="#about">About</a>
+</div>
+ -->
+
+ <div class="hamburger-menu">
+  <button class="burger" data-state="closed">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+<nav data-state="closed">
+  <ul>
+      {% if user.is_authenticated %}
+  <li>
+    <a href="/">Home</a>
+  </li>
+          <li>
+    <a href="/news">News</a>
+  </li>
+
+          <li>
+    <a href="/contact">Contact Us</a>
+  </li>
+  <li>
+    <a href="/about">About Us</a>
+  </li>
+
+      <li>
+    <a href="/logout">Logout</a>
+  </li>
+
+          {% else %}
+ <li>
+    <a href="/login">Login</a>
+  </li>
+           <li>
+    <a href="/register">Register</a>
+  </li>
+            <li>
+    <a href="/contact">Contact Us</a>
+  </li>
+  <li>
+    <a href="/about">About Us</a>
+  </li>
+      {% endif %}
+
+
+  </ul>
+</nav>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js'></script><script  src="../static/js/404.js"></script>

@@ -1,0 +1,122 @@
+/*background image reference */
+/*https://www.freepik.com/free-vector/hr-managers-selecting-candidates_5561885.htm#page=1&query=human%20resources&position=48*/
+body {/*background: linear-gradient(to bottom right, #E1BEE7, #B2EBF2);*/
+      background-image: url("img/recruitment.jpg");
+      opacity: 500%;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      font-family: Arial;}
+
+#goback {position: absolute;
+         left: 90%;
+         top: 10%;
+         transform: translateX(-50%) translateY(-50%);
+         text-decoration: none;}
+
+#submit {position: relative;
+         left: 210px;
+         top: 80px;
+         transform: translateX(-50%) translateY(-50%);}
+
+
+form {
+
+
+padding: 1%;
+  position: absolute;
+      top: 20%;
+      left: 5%;
+      color: black;
+      font-weight: bold;
+      background-color: #0092ff;
+      border: 3px solid  #3456A8;
+      padding-left: 15px;
+      border-radius: 15px;
+      padding-bottom: 25px;}
+/*#title*/
+/*{*/
+/*    color: red; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; text-align: center;*/
+/*}*/
+
+
+
+/* Reference: https://github.com/iMonochrome/fancy_button*/
+.button {
+  margin: 2%;
+        font-size: 20pt;
+        --offset: 10px;
+        --border-size: 2px;
+        display: block;
+        position: relative;
+        padding: 1.5em 3em;
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: #555555;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+        transition: background 0.6s ease;}
+
+.button:hover {background: rgba(100, 0, 0, 0.03);}
+
+.button__horizontal,
+.button__vertical {position: absolute;
+                  top: var(--horizontal-offset, 0);
+                  right: var(--vertical-offset, 0);
+                  bottom: var(--horizontal-offset, 0);
+                  left: var(--vertical-offset, 0);
+                  transition: transform 0.8s ease;
+                  will-change: transform;}
+
+.button__horizontal::before,
+.button__vertical::before {content: "";
+                          position: absolute;
+                          border: inherit;}
+
+.button__horizontal {--vertical-offset: calc(var(--offset) * -1);
+                      border-top: var(--border-size) solid currentcolor;
+                      border-bottom: var(--border-size) solid currentcolor;}
+
+.button__horizontal::before {top: calc(var(--vertical-offset) - var(--border-size));
+                              bottom: calc(var(--vertical-offset) - var(--border-size));
+                              left: calc(var(--vertical-offset) * -1);
+                              right: calc(var(--vertical-offset) * -1);}
+
+.button:hover .button__horizontal {transform: scaleX(0);}
+
+.button__vertical {--horizontal-offset: calc(var(--offset) * -1);
+                  border-left: var(--border-size) solid currentcolor;
+                  border-right: var(--border-size) solid currentcolor;}
+
+.button__vertical::before {top: calc(var(--horizontal-offset) * -1);
+                          bottom: calc(var(--horizontal-offset) * -1);
+                          left: calc(var(--horizontal-offset) - var(--border-size));
+                          right: calc(var(--horizontal-offset) - var(--border-size));}
+
+.button:hover .button__vertical {transform: scaleY(0);}
+
+.alert {position: fixed;
+          bottom: 5px;
+          left:2%;
+          width: 96%;
+          padding: 20px;
+          background-color: #32CD32;
+          color: white;}
+
+.closebtn {margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;}
+
+.closebtn:hover {color: black;}

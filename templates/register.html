@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Sign-up {% endblock %}
+ {% block link %} <link href="../static/register.css" rel="stylesheet">{% endblock %}
+
+{% block content %}
+
+
+
+
+    <!-- Sign Up -->
+     <div class="content-section">
+        <form action="." method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Sign Up</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button id="btn" class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="formFooter">
+                Already Have An Account? <a class="signinfooter" href="/login">Sign In</a>
+            </small>
+        </div>
+    </div>
+
+    {% include "navbar.html" %}
+{% endblock %}

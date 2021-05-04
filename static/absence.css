@@ -1,0 +1,319 @@
+/*reference for image*/
+/*https://www.freepik.com/free-vector/sick-leave-abstract-concept-illustration-paid-days-stay-home-without-losing-pay-social-insurance-ill-worker-sick-businessman-home-office-cold-flu-thermometer_10780258.htm#page=1&query=absence&position=0*/
+/*References*/
+/*TABLE REFERENCE*/
+/*https://codepen.io/florantara/pen/dROvdb*/
+
+body {
+  
+      background-image: url("img/absence.jpg");
+      opacity: 500%;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+
+      background-attachment: fixed;
+      font-family: Arial;}
+
+/*Reference for pop-in effect*/
+/*https://drawne.com/pop-in-effect-with-css3-keyframe-animation/*/
+#emp_found {
+
+    /*background-color: #2d76b0;*/
+    width: 40%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    animation: pop-in 2s;
+
+}
+#emp_found h1
+{
+    font-size: 40px;
+    color: #2d76b0;
+}
+
+
+
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        transform:rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        transform:rotate(3240deg);
+    }
+}
+
+
+
+
+form
+{
+    color: red;
+    font-size: 20pt;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+#errmsg
+{
+    color: red;
+    font-size: 50pt;
+    text-align: center;
+}
+
+#btn
+{
+    position: absolute;
+    top: 76%;
+
+}
+
+.inputs
+{
+  color: blue;
+  background: ;
+  font-size: 40pt;
+}
+/*reference*/
+/*https://www.w3schools.com/howto/howto_css_image_center.asp*/
+img
+{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+table
+{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 60%;
+  height: 40%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+#goback
+{
+position: absolute;
+  top: 80%;
+  left: 80%;
+}
+
+
+/*#title*/
+/*{*/
+/*    color: red; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; text-align: center;*/
+/*}*/
+
+
+
+/* Reference: https://github.com/iMonochrome/fancy_button*/
+.button {
+
+    margin: 2%;
+    font-size: 20pt;
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #555555;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.6s ease;
+}
+.button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+.button__horizontal,
+.button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+.button__horizontal::before,
+.button__vertical::before {
+  content: "";
+  position: absolute;
+  border: inherit;
+}
+.button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+.button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+.button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+.button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+.button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+.button:hover .button__vertical {
+  transform: scaleY(0);
+}

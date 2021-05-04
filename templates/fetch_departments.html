@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %} Fetch Departments {% endblock %}
+ {% block link %} <link rel="stylesheet" href="../static/fetch_departments.css" type="text/css"/>{% endblock %}
+{% block content %}
+
+
+
+
+<div class="tbl-header">
+    <table style="width:100%;">
+    <thead>
+    <tr>
+
+        <th width="50%">Name</th>
+        <th width="50%">number of employees</th>
+ 
+    </tr>
+    </thead>
+    </div>
+<div style="width:100%;overflow:auto; max-height:100px;">
+  
+
+    <tbody>
+    {% for dep in deps %}
+
+        <tr>
+
+            <td width="50%"><a href="/fetchdeps/{{dep.department}}" style="color:darkblue; font-size: 20px; text-decoration: none;font-family: 'sans-serif';" >{{ dep.department }}</a></td>
+        <td width="50%">{{  dep.Number_of_employees }}</td>
+
+        </tr>
+
+
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+  <a id="goback" href="/"><button id="btn" class="button" type="button">Menu<div class="button__horizontal"></div><div class="button__vertical"></div></button></a>
+
+
+
+{% endblock %}

@@ -1,0 +1,146 @@
+ .container {
+
+  /*https://www.freepik.com/free-vector/recruiters-managers-searching-candidate-huge-cv-position-recruitment-agency-human-resources-service-recruitment-network-concept-illustration_11668481.htm#page=1&query=human%20resources&position=29#position=29&page=1&query=human%20resources*/
+        background-image: url("img/home.jpg");
+        opacity: 500%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+
+ }
+
+ .box {
+        width: 200px;
+        height: 100px;
+        background-color: #0092ff;
+        border: 3px solid #3456A8;
+        border-radius: 15px;
+
+      }
+
+/*Reference for glowing text*/
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_glowing_text*/
+.glow {
+  /*font-size: 80px;*/
+  color: #fff;
+  animation: glow 1s linear infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+ .textbox {text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            word-spacing: 8cm;
+            font-weight: bold;
+            font-family: Arial;}
+
+
+
+
+.row.center
+{
+    margin-top: 10%;
+}
+
+.a  {text-decoration: none;
+    color: black;
+    font-size: 20pt;}
+
+#content1 a:hover  {color: orangered;}
+
+#content2 a:hover  {color: orangered;}
+
+#content1 {position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);}
+
+#content2 {position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);}
+
+/*@keyframes rotateZ {*/
+
+
+/*    100% {*/
+/*        transform: rotateZ(-3240deg);*/
+
+/*    }*/
+
+
+/*}*/
+
+/*Reference: https://codepen.io/frebliklo/pen/YeqaNB#code-area */
+
+.wrapper {position: absolute;
+            left: 85%;
+            top: 90%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            transition: all .4s ease-out;
+            transform: translate(-50%, -50%);}
+
+.wrapper__links {display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 70%;}
+
+.social-link--linkedin {color: #2d76b0;}
+
+.social-link--github {color: #000;}
+
+.social-link--instagram {color: #9a2970;}
+
+.social-link--dribbble {color: #b53561;}
+
+.social-link .social-svg {width: 4.8rem;
+                          height: 4.8rem;}
+
+.social-link .social-svg .social-group__icon {fill: #191308;
+                                              transition: all .2s; }
+
+.social-link .social-svg .social-group__inner-circle {fill: transparent;
+                                                      transition: all .2s;}
+
+.social-link .social-svg .social-group__outline {stroke: #191308;
+                                                 transform-origin: 50% 50%;
+                                                 transition: all .2s; }
+.social-link .social-svg:hover .social-group__icon, .social-link .social-svg:active .social-group__icon, .social-link .social-svg:focus .social-group__icon {fill: #FFFBFA;
+                                                                                                                                                             }
+
+.social-link .social-svg:hover .social-group__inner-circle, .social-link .social-svg:active .social-group__inner-circle, .social-link .social-svg:focus .social-group__inner-circle {fill: currentColor;
+                                                                                                                                                                                     }
+
+.social-link .social-svg:hover .social-group__inner-circle--instagram, .social-link .social-svg:active .social-group__inner-circle--instagram, .social-link .social-svg:focus .social-group__inner-circle--instagram {fill: url(#simpleInsta) !important;}
+
+.social-link .social-svg:hover .social-group__outline, .social-link .social-svg:active .social-group__outline, .social-link .social-svg:focus .social-group__outline {stroke: currentColor;
+                                                                                                                                                                  a
+                                                                                                                                                                  n
+
+                                                                                                                                                  
+/*# sourceMappingURL=style.css.map */
+
+@media screen and (min-width: 1500px)  {
+
+.row.center
+{
+    margin-top: 15%;
+}
+
+  
+}

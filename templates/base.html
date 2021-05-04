@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% block link %}{% endblock %}
+
+  <style>
+        .alert {position: fixed;
+          bottom: 5px;
+          left:2%;
+          width: 96%;
+          padding: 20px;
+          background-color: #32CD32;
+          color: white;}
+
+        .closebtn {margin-left: 15px;
+              color: white;
+              font-weight: bold;
+              float: right;
+              font-size: 22px;
+              line-height: 20px;
+              cursor: pointer;
+              transition: 0.3s;}
+
+        .closebtn:hover {color: black;}
+
+  </style>
+  </head>
+
+  <body>
+
+    {% block content %}{% endblock %}
+
+      {% if messages %}
+    {% for message in messages %}
+     <div class="alert">
+     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+         <strong>    {{ message }} </strong>
+</div>
+
+        {% endfor %}
+    {% endif %}
+  </body>
+</html>

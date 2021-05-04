@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Login {% endblock %}
+ {% block link %} <link href="../static/login.css" rel="stylesheet">{% endblock %}
+
+{% block content %}
+
+
+
+
+    <!-- Sign in -->
+     <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log in</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button id="btn" class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="formFooter">
+                Don't Have an Account Yet? <a class="signinfooter" href="{% url 'sign-up' %}">Sign Up</a>
+            </small>
+        </div>
+    </div>
+
+    
+
+
+    {% include "navbar.html" %}
+{% endblock %}

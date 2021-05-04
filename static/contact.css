@@ -1,0 +1,183 @@
+ /*Reference for floating animation polygons*/
+/*https://codepen.io/saransh/pen/aezht*/
+
+body {  background-color: #2F3242;
+      text-color: #666666;}
+#main {max-width: 450px;
+          margin: auto;
+          margin-top: 30px;
+          background-color: white;}
+
+#flex-container {display: flex;
+  		 flex-direction: column;
+                 align-items: justify;
+                 padding: 20px;}
+
+body>div>li>div {vertical-align: middle;
+                 width: fit-content;}
+
+img {border-radius: 50%;
+     height: 80px;
+     width: 80px;
+     float: left;}
+.h4 {font-size: 18px;
+    margin: 15px;
+    margin-bottom: 0px;}
+
+.p {color: #AAAAAA;
+   margin: 15px;
+   margin-top: 0px;}
+
+.ul li {list-style-type: none;
+       list-style-position:inside;
+       margin:0;
+       padding-bottom: 8px;
+       padding-top: 8px;
+       border-bottom: 1px solid lightgray;
+       display: flex;
+       align-items: flex-start;}
+
+#final {border-bottom: 0;}
+
+#goback {position: absolute;
+         left: 90%;
+         top: 10%;
+         transform: translateX(-50%) translateY(-50%);
+         text-decoration: none;}
+
+.button {margin: 2%;
+        font-size: 20pt;
+        --offset: 10px;
+        --border-size: 2px;
+        display: block;
+        position: relative;
+        padding: 1.5em 3em;
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: #555555;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+        transition: background 0.6s ease;}
+
+.button:hover {background: rgba(100, 0, 0, 0.03);}
+
+.button__horizontal,
+.button__vertical {position: absolute;
+                  top: var(--horizontal-offset, 0);
+                  right: var(--vertical-offset, 0);
+                  bottom: var(--horizontal-offset, 0);
+                  left: var(--vertical-offset, 0);
+                  transition: transform 0.8s ease;
+                  will-change: transform;}
+
+.button__horizontal::before,
+.button__vertical::before {content: "";
+                          position: absolute;
+                          border: inherit;}
+
+.button__horizontal {--vertical-offset: calc(var(--offset) * -1);
+                      border-top: var(--border-size) solid currentcolor;
+                      border-bottom: var(--border-size) solid currentcolor;}
+
+.button__horizontal::before {top: calc(var(--vertical-offset) - var(--border-size));
+                              bottom: calc(var(--vertical-offset) - var(--border-size));
+                              left: calc(var(--vertical-offset) * -1);
+                              right: calc(var(--vertical-offset) * -1);}
+
+.button:hover .button__horizontal {transform: scaleX(0);}
+
+.button__vertical {--horizontal-offset: calc(var(--offset) * -1);
+                  border-left: var(--border-size) solid currentcolor;
+                  border-right: var(--border-size) solid currentcolor;}
+
+.button__vertical::before {top: calc(var(--horizontal-offset) * -1);
+                          bottom: calc(var(--horizontal-offset) * -1);
+                          left: calc(var(--horizontal-offset) - var(--border-size));
+                          right: calc(var(--horizontal-offset) - var(--border-size));}
+
+.button:hover .button__vertical {transform: scaleY(0);}
+
+
+.alert {position: fixed;
+          bottom: 5px;
+          left:2%;
+          width: 96%;
+          padding: 20px;
+          background-color: #32CD32;
+          color: white;}
+
+.closebtn {margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;}
+
+.closebtn:hover {color: black;}
+
+
+#svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -240px;
+  margin-left: -80%;
+}
+
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  -webkit-animation: float 1s infinite ease-in-out alternate;
+          animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s; 
+}
+#Polygon-3 {
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s; 
+}
+#Polygon-4 {
+  -webkit-animation-delay: .6s;
+          animation-delay: .6s; 
+}
+#Polygon-5 {
+  -webkit-animation-delay: .8s;
+          animation-delay: .8s; 
+}
+
+@-webkit-keyframes float {
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes float {
+  100% {
+    transform: translateY(20px);
+  }
+}
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
+  }
+  .message-box {
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %} Update Department {% endblock %}
+{% block link %} <link rel="stylesheet" href="../static/update_department.css" type="text/css"/>{% endblock %}
+{% block content %}
+
+<a id="goback" href="/">
+    <button class="button" type="button">Menu
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+    </button>
+</a>
+
+<div>
+    <form action="." method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button id="submit" class="button" type="submit">Update Department
+            <div class="button__horizontal"></div>
+            <div class="button__vertical"></div>
+        </button>
+    </form>
+</div>
+{% endblock %}

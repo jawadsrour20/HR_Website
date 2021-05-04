@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %} News Feed {% endblock %}
+{% block link %} <link rel="stylesheet" href="../static/about.css" type="text/css"/>{% endblock %}
+{% block content %}
+
+<div>
+{#    <main>#}
+{#  <section class="mast">#}
+    <figure class="mast__bg" style="background-image:url(https://unsplash.it/1800/800?image=893)"></figure>
+    <header class="mast__header">
+      <h1 class="mast__title js-spanize" style="color: whitesmoke; opacity:1;font-size: 50pt">WHY IS HR IMPORTANT?</h1>
+      <hr class="sep"/>
+      <p class="mast__text js-spanize" style="color: whitesmoke;font-size: 20pt">
+HR plays a key role in developing, reinforcing and changing the culture of an organisation.
+Pay, performance management, training and development.
+</p>
+    </header>
+{#  </section>#}
+{#</main>#}
+
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'>
+  </script><script  src="../static/js/about.js"></script>
+</div>
+
+{% include "navbar.html" %}
+{% endblock %}

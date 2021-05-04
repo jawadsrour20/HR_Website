@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %} Add Employee {% endblock %}
+ {% block link %} <link rel="stylesheet" href="../static/add.css" type="text/css"/>{% endblock %}
+{% block content %}
+
+
+
+<a id="goback" href="/">
+    <button class="button" type="button">Menu
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+    </button>
+</a>
+
+<div>
+    <form action="." method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button id="submit" class="button" type="submit">Add Employee
+            <div class="button__horizontal"></div>
+            <div class="button__vertical"></div>
+        </button>
+    </form>
+
+</div>
+
+    {%if successMessage %}
+
+
+<div class="alert">
+     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+     <strong>Success!</strong> Successfully added employee to the database.
+</div>
+
+{% elif flag %}
+
+<div class="alert" style="background-color: red;">
+     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+     <strong>Error adding employee to database.</strong>
+</div>
+{% endif %}
+
+
+{% endblock %}

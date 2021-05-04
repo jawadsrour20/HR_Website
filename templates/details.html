@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head>
+    <link rel="stylesheet" href="../static/details.css" type="text/css"/>
+
+</head>
+
+<body>
+    <h1 class ="top">Employee Details</h1>
+
+    <a id="goback" href="/fetchemployees">
+    <button class="button" type="button">Back
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+    </button>
+</a>
+
+    <hr>
+    <br><br>
+
+
+<div class="center">
+<div class="next">
+<div class="rimg">
+    {%if emp.photo == null or emp.photo == '1'  %}
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnKrFyxS9ptI-FvPq1SA1A4576CUW-xxnk5g&usqp=CAU" alt="couldnt load" class="rounded-circle" width="150">
+    {%else%}
+    <img src=" ../static/img/{{emp.photo}}" alt="No photo" class="rounded-circle" width="150">
+    {%endif%}
+</div>
+    <div class = "mt-3">
+        <h2 style="margin-left: 0px;">  {{emp.name}}  </h2>
+    </div>
+
+    <div class="about">
+        <h1>Id: &nbsp  &nbsp {{emp.emp_id}}</h1>
+        <br><hr>
+<h1> Name: {{  emp.name }} </h1>
+<br><hr>
+<h1>Email : {{ emp.email }}</h1>
+<br><hr>
+<h1>Department: {{ emp.department.department }}</h1>
+<br><hr>
+<h1>Experience: {{ emp.experience }} years</h1>
+<br><hr>
+        <h1>Salary: {{ emp.salary }}$</h1>
+        <br><hr>
+        <h1>Overtime: {{ emp.overtime_days }} days</h1>
+        <br><hr>
+        <h1>Absences: {{ emp.absences_days}} days</h1>
+
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+
+
+</html>

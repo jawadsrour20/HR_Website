@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %} Fetch Employee {% endblock %}
+{% block link %} <link href="../static/fetch_employee.css" rel="stylesheet" type="text/css"> {% endblock %}
+{% block content %}
+
+
+
+<div id="formdiv">
+<form action="." method="POST">
+  {% csrf_token %} {{ form.as_p }}
+
+  <button id="btn" class="button" type="submit">Search for Employee
+   <div class="button__horizontal"></div>
+        <div class="button__vertical"></div></button>
+
+    <a id="goback" href="/"><button id="btn" class="button" type="button">Menu
+   <div class="button__horizontal"></div>
+        <div class="button__vertical"></div></button></a>
+</form>
+</div>
+
+ {%if employee %}
+
+        <div id="emp_found">
+         <h1>Hello, I am {{ employee.name }}.</h1>
+         <h1>I work at the {{ employee.department.department }} department.</h1>
+         <h1>I have {{ employee.experience }} years of experience</h1>
+         <h1>I have {{ employee.overtime_days }} overtimes and {{ employee.absences_days }} absences.</h1>
+         <h1>You can reach me at {{ employee.email }}</h1>
+         <img src="../static/img/{{employee.photo}}" alt="no photo available" />
+     </div>
+     {% else %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        <h1 id="errmsg">{{ message }}</h1>
+        <img src="../static/img/sad.jpg"/>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    {% endif %}
+
+
+
+
+{% endblock %}
+
+
+
