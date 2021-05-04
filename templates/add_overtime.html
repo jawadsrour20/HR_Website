@@ -5,10 +5,21 @@
 
 
 <div id="formdiv">
-<form action="." method="POST">
+<form action="http://localhost:8000/addovertime/" method="POST">
   {% csrf_token %} {{ form.as_p }}
 
-  <button id="btn" class="button" type="submit">Add overtime 
+
+       <button type="button" onclick="myFunction()" style="background-color: mediumpurple; border-radius: 30%;">>Find</button>
+     <div>
+           {% if emp %}
+                 <p name="par"> Employee is: {{ emp.name }}with {{ emp.overtime_days }} days overtime.</p>
+         {%elif msg != none %}
+                 <p name="par"> {{ msg}}</p>
+               {% else%}
+               <p name="par"></p>
+           {% endif %}
+
+  <button id="btn" class="button" type="submit">Add overtime
    <div class="button__horizontal"></div>
         <div class="button__vertical"></div></button>
 
@@ -17,7 +28,6 @@
         <div class="button__vertical"></div></button></a>
 </form>
 </div>
-
  
 {%if notFound %}
 
@@ -27,5 +37,27 @@
 </div>
 
 {% endif %}
+
+
+   <script>
+
+    {% if idvalue %}
+             document.getElementsByName("emp_id")[0].value=parseInt({{ idvalue }});
+        {% endif %}
+
+
+    function myFunction() {
+        var x=document.getElementsByName("emp_id")[0].value;
+
+        if (x){
+            x=parseInt(x);
+        window.location.href = "http://localhost:8000/findempovt/"+x;
+        }
+
+        else{window.alert("please fill value");}
+    }
+
+
+</script>
 
 {% endblock %}

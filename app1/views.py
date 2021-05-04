@@ -295,6 +295,53 @@ def details(request, emp_id):
         return HttpResponse("<h1> something went wrong searching for id" + str(emp_id) + "</h1>")
 
 
+
+
+
+@login_required
+def findemp(request, eid):
+    #url_name = resolve(request.path).url_name
+    print("name: "+str(request))
+
+    res = Employee.objects.filter(emp_id=eid).first()
+
+    if res:
+        if '/findempupd/' in str(request):
+            form = UpdateDepartment()
+            #idvalue so input value is kept
+            return render(request, 'update_department.html', {'form': form, 'emp': res,'idvalue':eid})
+        elif ('/findempdel/' in str(request)):
+            form = SearchForm()
+            return render(request, 'delete_employee.html', {'form': form, 'emp': res,'idvalue':eid})
+        elif ('/findempabs/' in str(request)):
+            form = SearchForm()
+            return render(request, 'add_absence.html', {'form': form, 'emp': res,'idvalue':eid})
+        elif ('/findempovt/' in str(request)):
+            form = SearchForm()
+            return render(request, 'add_overtime.html', {'form': form, 'emp': res,'idvalue':eid})
+
+
+
+    else:
+        msg = "No employee with such id";
+        if '/findempupd/' in str(request):
+            form = UpdateDepartment()
+            return render(request, 'update_department.html', {'form': form, 'msg': msg,'idvalue':eid})
+        elif ('/findempdel/' in str(request)):
+            form = SearchForm()
+            return render(request, 'delete_employee.html', {'form': form, 'msg': msg, 'idvalue': eid})
+        elif ('/findempabs/' in str(request)):
+            form = SearchForm()
+            return render(request, 'add_absence.html', {'form': form, 'msg': msg, 'idvalue': eid})
+        elif ('/findempovt/' in str(request)):
+            form = SearchForm()
+            return render(request, 'add_overtime.html', {'form': form, 'msg': msg, 'idvalue': eid})
+
+
+
+
+
+
 @login_required
 def fromdep(request, dep_name):
     employees_fetched = Employee.objects.filter(department=dep_name).all()  # list of objects

@@ -10,14 +10,26 @@
 </a>
 
 <div>
-    <form action="." method="POST">
+    <form action="http://localhost:8000/delete/" method="POST">
         {% csrf_token %} {{ form.as_p }}
+
+         <button type="button" onclick="myFunction()" style="background-color: mediumpurple; border-radius: 30%;">>Find</button>
+     <div>
+           {% if emp %}
+                 <p name="par"> Employee is: {{ emp.name }}. Currently in department: {{ emp.department }} with {{ emp.absences_days }} absences and {{ emp.overtime_days }} days overtime</p>
+         {%elif msg != none %}
+                 <p name="par"> {{ msg}}</p>
+               {% else%}
+               <p name="par"></p>
+           {% endif %}
+
         <button id="submit" class="button" type="submit">Fire Employee
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
         </button>
     </form>
 </div>
+
 
 {% if messages %}
 <ul class="messages">
@@ -29,5 +41,28 @@
     {% endfor %}
 </ul>
 {% endif %}
+
+
+      <script>
+
+    {% if idvalue %}
+             document.getElementsByName("emp_id")[0].value=parseInt({{ idvalue }});
+        {% endif %}
+
+
+    function myFunction() {
+        var x=document.getElementsByName("emp_id")[0].value;
+
+        if (x){
+            x=parseInt(x);
+        window.location.href = "http://localhost:8000/findempdel/"+x;
+        }
+
+        else{window.alert("please fill value");}
+    }
+
+
+</script>
+
 
 {% endblock %}
