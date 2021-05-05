@@ -149,11 +149,12 @@ def delete_employee(request):
                         e.Number_of_employees = e.Number_of_employees - 1
                         e.save()
                 Employee.objects.filter(emp_id=employee_id).delete()
-                return render(request, 'index.html')
+                messages.info(request, 'Successfuly Fired Employee!')
+                return render(request, 'delete_employee.html',{'form':form})
 
             else:
-                messages.info(request, 'Employee does not exist!')
-                return render(request, 'delete_employee.html', {'form': form})
+                Flag = True
+                return render(request, 'delete_employee.html', {'form': form,'Flag':Flag})
     # GET
     else:
         form = SearchForm()

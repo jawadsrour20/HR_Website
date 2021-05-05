@@ -14,12 +14,15 @@
         {% csrf_token %} {{ form.as_p }}
 
          <button type="button" onclick="myFunction()" style="background-color: mediumpurple; border-radius: 30%;">>Find</button>
-     <div>
+     
+        
+
            {% if emp %}
                  <p name="par"> Employee is: {{ emp.name }}. Currently in department: {{ emp.department }} with {{ emp.absences_days }} absences and {{ emp.overtime_days }} days overtime</p>
          {%elif msg != none %}
                  <p name="par"> {{ msg}}</p>
-               {% else%}
+	{% else %}
+	
                <p name="par"></p>
            {% endif %}
 
@@ -27,6 +30,14 @@
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
         </button>
+
+	<div>
+	{% if Flag %}
+	<div class="alert" style="background-color: red;">
+     	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+     	<strong>Employee Not Found!</strong>
+	{% endif %}
+	</div>
     </form>
 </div>
 
