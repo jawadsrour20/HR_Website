@@ -266,9 +266,9 @@ def fetch_employee(request):
                 # return render(request, 'details.html', {'emp': fetched_employee})
 
             else:
+                flag=True
                 # issue error message
-                messages.info(request, 'Employee does not exist!')
-                return render(request, 'fetch_employee.html', {'form': form})
+                return render(request, 'fetch_employee.html', {'form': form,'flag':flag})
                 # return redirect('/report_student', 'error': errorstring)
                 # return HttpResponse("user not found")
 

@@ -28,17 +28,11 @@
          <h1>You can reach me at {{ employee.email }}</h1>
          <img src="../static/img/{{employee.photo}}" alt="no photo available" />
      </div>
-     {% else %}
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-        <h1 id="errmsg">{{ message }}</h1>
-        <img src="../static/img/sad.jpg"/>
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
+	{% elif flag %}
+		<div class="alert" style="background-color: red;">
+     		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+     		<strong>Employee Does Not Exist!</strong>
+		</div>
 
     {% endif %}
 
