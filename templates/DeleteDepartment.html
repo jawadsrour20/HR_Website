@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %} Update Department {% endblock %}
+{% block link %} <link rel="stylesheet" href="../static/update_department.css" type="text/css"/>{% endblock %}
+{% block content %}
+
+<a id="goback" href="/">
+    <button class="button" type="button">Menu
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+    </button>
+</a>
+
+<div>
+<div>
+   </div>
+    <form action="http://localhost:8000/deletedepartment/" method="POST">
+        {% csrf_token %}
+        {% if D %}
+        <select name="department" id="department" autofocus>
+        {% for d in D %}
+            <option value={{ d.department }}>{{ d.department }}</option>
+        {% endfor %}
+        </select>
+
+        {% endif %}
+<br>
+    <p> Note: Departments with existing Employees can't be deleted. Fire/ Move employees first.</p>
+        <button id="submit" class="button" type="submit">Delete Department
+            <div class="button__horizontal"></div>
+            <div class="button__vertical"></div>
+        </button>
+    </form>
+
+
+</div>
+
+
+
+{%if msg %}
+
+<div class="alert" style="background-color: red;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Failed!</strong> {{ msg}}
+</div>
+
+
+{%elif scmsg %}
+<div class="alert">
+     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+     <strong>Success!</strong> {{ scmsg}}.
+</div>
+{% endif %}
+
+{% endblock %}

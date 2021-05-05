@@ -11,8 +11,20 @@
 
 <div>
     <form action="http://localhost:8000/updatedepartment/" method="POST">
-        {% csrf_token %} {{ form.as_p }}
+        {% csrf_token %}
 
+    <label for="quantity">Employee ID: </label>
+<input type="number" id="quantity" name="emp_id" >
+    <br>
+
+       {% if D %}
+        <select name="department" id="department" autofocus>
+        {% for d in D %}
+            <option value={{ d.department }}>{{ d.department }}</option>
+        {% endfor %}
+        </select>
+
+        {% endif %}
 
 
         <div>

@@ -48,6 +48,28 @@ for dep in departments_queryset:
     departments_list.append((dep.department, dep.department.capitalize()))
 
 
+def updatedlist():
+    dep_queryset = Department.objects.all()
+    dep_list = list()
+    for dep in dep_queryset:
+        dep_list.append((dep.department, dep.department.capitalize()))
+    return dep_list
+
+
 class UpdateDepartment(forms.Form):
     emp_id = forms.IntegerField()
-    department = forms.CharField(max_length=50, widget=forms.Select(choices=departments_list))
+    department = forms.CharField(max_length=50, widget=forms.Select(choices=updatedlist()))
+
+
+class DeleteDepartment(forms.Form):
+    department = forms.CharField(max_length=50, widget=forms.Select(choices=updatedlist()))
+
+    def updatedep(self):
+        self.department = forms.CharField(max_length=50, widget=forms.Select(choices=updatedlist()))
+
+    def get_interest_fields(self):
+        for field_name in self.fields:
+            print(field_name)
+            if field_name.startswith('dep'):
+                print("fount")
+                yield self[field_name]
